@@ -1,8 +1,7 @@
 #include <stdio.h>
-/*
- *main - A program to print a line through a function(puts)
- *return:0 (Success) - This program should return 0
- *This program shouldn't use printf
+/**
+ *main - A program to print a line with puts function
+ *Return:0 (Success)
  */
 int main(void)
 {
