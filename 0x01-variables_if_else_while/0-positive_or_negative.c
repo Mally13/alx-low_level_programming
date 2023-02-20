@@ -4,10 +4,10 @@
 /* more headers goes there */
 
 /* betty style doc for function main goes there */
-/**
+/*
  * main -A program that prints whether a number is positive or negative
  * Return: 0(Success)
- * /
+ * */
 int main(void)
 {
 	int n;
