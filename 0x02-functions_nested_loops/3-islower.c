@@ -2,7 +2,7 @@
 
 /**
  * _islower - checks for a lowercase character
- * c - parameter value to be checked
+ * @c:  parameter value to be checked of type int
  * Return:1 (lowercase)
  */
 
