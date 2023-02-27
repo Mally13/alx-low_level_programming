@@ -21,7 +21,9 @@ void print_times_table(int n)
 			{
 				prod = i * j;
 
-				if (j != n)
+				if (j == 0)
+					printf("%d,",prod);
+				else if (j != n)
 				{
 					if (prod <= 9)
 						printf("  %d,", prod);
@@ -29,10 +31,6 @@ void print_times_table(int n)
 						printf(" %d,", prod);
 					else
 						printf("%d,", prod);
-				}
-				else if(j == 0)
-				{
-					printf("%d,", prod);
 				}
 				else
 				{
