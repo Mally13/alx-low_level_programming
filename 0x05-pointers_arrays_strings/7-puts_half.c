@@ -21,7 +21,7 @@ void puts_half(char *str)
 			}
 		}
 	}
-	else
+	else if (ln % 2 != 0)
 	{
 		for (i = (ln - 1) / 2; i <= ln; i++)
 		{
