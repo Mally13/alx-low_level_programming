@@ -5,11 +5,14 @@
  */
 int main(void)
 {
-	int i, j = 1, k = 2;
+	unsigned long i, j = 1, k = 2;
 
 	for (i = 0; i <= 25; i++)
 	{
-		printf("%d, %d, ", j, k);
+		if (i != 25)
+			printf("%lu, %lu, ", j, k);
+		else
+			printf("%lu, %lu", j, k);
 		j += k;
 		k += j;
 	}
