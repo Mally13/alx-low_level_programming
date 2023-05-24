@@ -9,10 +9,10 @@ int main(void)
 
 	for (i = 0; i <= 25; i++)
 	{
-		printf("%d, %d,", j, k);
+		printf("%d, %d, ", j, k);
 		j += k;
 		k += j;
 	}
-	printf('\n');
-
+	printf("\n");
+	return (0);
 }
