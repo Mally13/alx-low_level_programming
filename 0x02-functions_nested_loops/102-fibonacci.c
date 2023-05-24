@@ -7,9 +7,9 @@ int main(void)
 {
 	unsigned long i, j = 1, k = 2;
 
-	for (i = 0; i <= 25; i++)
+	for (i = 0; i < 25; i++)
 	{
-		if (i != 25)
+		if (i != 24)
 			printf("%lu, %lu, ", j, k);
 		else
 			printf("%lu, %lu", j, k);
