@@ -7,7 +7,6 @@ int main(void)
 {
 	int i, j = 1, k = 2;
 
-	print
 	for (i = 0; i <= 25; i++)
 	{
 		printf("%d, %d,", j, k);
