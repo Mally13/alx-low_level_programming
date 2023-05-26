@@ -19,7 +19,7 @@ void print_triangle(int size)
 				else if (i == size)
 					_putchar('#');
 				else if (j > size - i)
-				       _putchar('#');	
+					_putchar('#');
 				else
 					_putchar(' ');
 			}
