@@ -1,5 +1,5 @@
 #include "main.h"
-#include <strim=ng.h>
+#include <string.h>
 
 /**
  * puts_half - prints second half a string
