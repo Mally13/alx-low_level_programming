@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_rev  Prnts a string in reverse
+ * print_rev - Prints a string in reverse
  * @s: pointer to string to be reversed
  */
 
