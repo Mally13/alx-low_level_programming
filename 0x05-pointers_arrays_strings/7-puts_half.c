@@ -20,7 +20,8 @@ void puts_half(char *str)
 
 	while (h2 <= n)
 	{
-		_putchar(str[h2]);
+		if (str[h2] != '\0')
+			_putchar(str[h2]);
 		h2++;
 	}
 	_putchar('\n');
