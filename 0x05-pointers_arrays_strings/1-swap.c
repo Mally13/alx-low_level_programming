@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * swap-int - swps the values of two ints
+ * swap_int - swps the values of two ints
  * @a: value to be swapped
  * @b: value to be swapped
  */
