@@ -1,4 +1,5 @@
 #include "main.h"
+#include <strim=ng.h>
 
 /**
  * puts_half - prints second half a string
@@ -9,10 +10,8 @@ void puts_half(char *str)
 {
 	int n = 0, h2;
 
-	while (str[n] != '\0')
-	{
-		n++;
-	}
+	n = strlen(str);
+
 	if ((n % 2) != 0)
 		h2 = (n - 1) / 2;
 	else
