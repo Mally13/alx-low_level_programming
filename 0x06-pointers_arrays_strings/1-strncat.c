@@ -19,7 +19,7 @@ char *_strncat(char *dest, char *src, int n)
 	if (lnsrc != 0)
 	{
 		for (i = 0; src[i] && i < n; i++)
-			dest[lndest + i] = src[i];	
+			dest[lndest + i] = src[i];
 	}
 	return (dest);
 }
