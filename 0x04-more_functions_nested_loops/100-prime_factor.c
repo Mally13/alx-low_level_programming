@@ -1,13 +1,12 @@
-#include <math.h>
 #include <stdio.h>
+#include <math.h>
 /**
  * main - prints the largest prime factor of the number 612852475143
  * Return: 0 (success)
  */
 int main(void)
 {
-	unsigned long int n = 612852475143, largest;
-	int i;
+	unsigned long int n = 612852475143, largest, i;
 
 	while (n / 2)
 	{
