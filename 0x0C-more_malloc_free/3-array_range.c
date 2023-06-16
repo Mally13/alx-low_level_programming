@@ -1,10 +1,10 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * array_range: Creates an array of interges within a certain range
+ * array_range - Creates an array of interges within a certain range
  * @min: first int value
  * @max: last int value
- * Return: The pointer to the newly created array or NULL if 
+ * Return: The pointer to the newly created array or NULL if
  * min > max or malloc fails
  */
 
