@@ -1,7 +1,7 @@
 #ifndef DOG_H
 #define DOG_H
 
-/* A header file that defines type struct dog */
+/* A header file contaiining structures, function prototypes and typedef */
 
 /**
  * struct dog - A type describing a dog
@@ -15,4 +15,7 @@ struct dog
 	float age;
 	char *owner;
 };
+
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
 #endif/* endif ifndef DOG_H */
