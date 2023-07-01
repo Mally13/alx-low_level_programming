@@ -1,22 +1,21 @@
 ;64-bit program in assembly that prints Hello, Holberton
 ;follewed by a new line
 
-extern printf
-
 section .data
-	format db "Hello, Holberton", 0x0A
-
+; Data section, initialized variables
+	msg: db "Hello, Holberton", 10
+	msglen: equ $ - msg
 section .text
+; Code section.
 	global main
-
+; the standard gcc entry point
 main:
-	sub rsp, 8
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, msg
+	mov rdx, msglen
+	syscall
 
-	mov edi, format
-	xor eax, eax
-	call printf
-
-	add rsp, 8
-	mov eax, 60
-	xor edi, edi
+	mov rax, 60
+	mov rdi, 0 ; return
 	syscall
