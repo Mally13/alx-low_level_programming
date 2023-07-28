@@ -9,10 +9,9 @@
  * close_file - closes files
  * @n: number of files to be closed
  * @...: variable file descriptors arguments to be closed
- * Return: 0 (success) -1 (faiilure)
  */
 
-int close_file(int n, ...)
+void close_file(int n, ...)
 {
 	va_list args;
 	int i, fd;
@@ -24,11 +23,29 @@ int close_file(int n, ...)
 		if (close(fd) == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-			return (-1);
+			exit(100);
 		}
 	}
 	va_end(args);
-	return (0);
+}
+/**
+ * create_buf - create a 1024 memory
+ * @file: name of file to be written
+ * Return: pointer to buffer
+ */
+char *create_buf(char *file)
+{
+	char *buf;
+
+	buf = malloc(sizeof(char) * 1024);
+
+	if (buf == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+		exit(99);
+	}
+
+	return (buf);
 }
 /**
  * main - copies the content of a file to another file.
@@ -41,41 +58,36 @@ int main(int argc, char *argv[])
 	int filefrom, fileto, chars_read, chars_written;
 	char *buf = malloc(sizeof(char) * 1024);
 
-	if (buf == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	buf = create_buf(argv[2]);
 	filefrom = open(argv[1], O_RDONLY);
 	chars_read = read(filefrom, buf, 1024);
-	if (filefrom == -1 || chars_read == -1)
-	{
-		free(buf);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		if (filefrom != -1)
-			if ((close_file(1, filefrom)) != 0)
-				exit(100);
-		exit(98);
-	}
 	fileto = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	chars_written = write(fileto, buf, chars_read);
-	if (fileto == -1 || chars_written == -1)
+
+	while (chars_read > 0)
 	{
-		free(buf);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close_file(1, filefrom);
-		if (fileto != -1)
-			if ((close_file(1, fileto)) != 0)
-				exit(100);
-		exit(99);
+		if (filefrom == -1 || chars_read == -1)
+		{
+			free(buf);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+
+		if (fileto == -1 || chars_written == -1)
+		{
+			free(buf);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}
+		chars_read = read(filefrom, buf, 1024);
+		chars_written = open(argv[2], O_WRONLY | O_APPEND);
 	}
 	free(buf);
-	if ((close_file(2, filefrom, fileto)) != 0)
-		exit(100);
+	close_file(2, filefrom, fileto);
 	return (0);
 }
