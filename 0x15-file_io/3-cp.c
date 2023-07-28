@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
-
+		chars_written = write(fileto, buf, chars_read);
 		if (fileto == -1 || chars_written == -1)
 		{
 			free(buf);
