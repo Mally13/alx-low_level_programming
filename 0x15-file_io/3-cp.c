@@ -9,9 +9,10 @@
  * close_file - closes files
  * @n: number of files to be closed
  * @...: variable file descriptors arguments to be closed
+ * Return: 0 (success) -1 (faiilure)
  */
 
-void close_file(int n, ...)
+int close_file(int n, ...)
 {
 	va_list args;
 	int i, fd;
@@ -20,13 +21,14 @@ void close_file(int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		fd = va_arg(args, int);
-		if (close(fd == -1))
+		if (close(fd) == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-			exit(100);
+			return (-1);
 		}
 	}
 	va_end(args);
+	return (0);
 }
 /**
  * main - copies the content of a file to another file.
@@ -49,7 +51,6 @@ int main(int argc, char *argv[])
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
-
 	}
 	filefrom = open(argv[1], O_RDONLY);
 	chars_read = read(filefrom, buf, 1024);
