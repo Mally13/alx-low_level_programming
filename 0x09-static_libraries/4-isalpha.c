@@ -1,5 +1,6 @@
 #include "main.h"
-int _atoi(char *s)
+
+int _isalpha(int c)
 {
 
 }
