@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 	buf = create_buf(argv[2]);
 	filefrom = open(argv[1], O_RDONLY);
 	chars_read = read(filefrom, buf, 1024);
-	fileto = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0644);
+	fileto = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
 		if (filefrom == -1 || chars_read == -1)
