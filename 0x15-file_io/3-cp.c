@@ -66,8 +66,7 @@ int main(int argc, char *argv[])
 	chars_read = read(filefrom, buf, 1024);
 	fileto = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0644);
 
-	while (chars_read > 0)
-	{
+	do {
 		if (filefrom == -1 || chars_read == -1)
 		{
 			free(buf);
@@ -83,7 +82,7 @@ int main(int argc, char *argv[])
 		}
 		chars_read = read(filefrom, buf, 1024);
 		chars_written = open(argv[2], O_WRONLY | O_APPEND);
-	}
+	} while (chars_read > 0);
 	free(buf);
 	close_file(2, filefrom, fileto);
 	return (0);
