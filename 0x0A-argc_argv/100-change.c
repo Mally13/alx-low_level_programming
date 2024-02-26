@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/**
+ * main - Prints the minimum number of coins to make
+ * change for an amount of money.
+ * @argc: Number of arguments passed
+ * @argv: A list of arguments passed
+ * Return: 0 (success) or 1 (Failure)
+ */
 int main(int argc, char *argv[])
 {
 	int cents, quarters, dimes, nickels, twos, ones;
